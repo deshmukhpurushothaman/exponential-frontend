@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cookie Clicker Clone
 
-## Getting Started
+A fun and engaging Cookie Clicker Clone application built with React, TypeScript, and Axios for managing user data and handling points and prizes.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Description
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project is a simple clone of the popular Cookie Clicker game where users can log in with their unique ID, click a button to earn points, and win prizes based on their actions. The application allows users to:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Enter a user ID and log in.
+- Earn points by clicking a button.
+- Receive a prize if they win on a click.
+- View their points and prizes in real time.
+- Get rewarded with dynamic, visually appealing notifications.
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+Follow these steps to set up the project locally:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/deshmukhpurushothaman/exponential-frontend.git
+   cd exponential-frontend
+   ```
 
-## Deploy on Vercel
+2. **Install dependencies**:
+   Ensure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed, then run:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Set environment variables**:
+   Create a `.env` file in the root directory and add your API URL:
+   ```bash
+   NEXT_PUBLIC_BASE_API_URL=your-api-url
+   ```
+
+## Usage
+
+1. **Start the development server**:
+
+   ```bash
+   npm run dev
+   ```
+
+2. Visit [http://localhost:3000](http://localhost:3000) in your browser.
+
+3. **Login** by entering a user ID. The points and prizes will update each time the button is clicked.
+
+4. Enjoy playing and watching your points grow! 🎉
+
+## Features
+
+- **User Authentication**: Users can log in using their unique user ID.
+- **Click-to-Earn Points**: Points are awarded with each click.
+- **Prize System**: Users can win a prize after certain actions.
+- **Animated Notifications**: Dynamic and visually appealing prize notifications.
+- **Responsive Design**: The application is responsive and works on all screen sizes.
+- **Modern UI**: Styled with TailwindCSS for a sleek and modern interface.
+
+## Technologies Used
+
+- **React**: The front-end library used for building the UI.
+- **TypeScript**: A superset of JavaScript that adds static typing.
+- **Axios**: For making HTTP requests to the backend API.
+- **TailwindCSS**: For responsive and utility-first CSS styling.
+- **Framer Motion**: For smooth animations and transitions.
+- **Next.js**: A React framework that provides server-side rendering, static site generation, and more.

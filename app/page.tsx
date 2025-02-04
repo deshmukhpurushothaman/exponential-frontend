@@ -50,62 +50,88 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-blue-900 to-gray-900 text-white">
+    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-indigo-800 to-gray-900 text-white">
       <motion.h1
-        className="text-4xl font-bold mb-6"
+        className="text-5xl font-extrabold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-600"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Cookie Clicker Clone
+        🎮 Cookie Clicker Challenge 🎮
       </motion.h1>
       <motion.div
-        className="flex flex-col items-center gap-4"
+        className="flex flex-col items-center gap-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
       >
         <input
           type="text"
-          placeholder="Enter User ID"
+          placeholder="Enter Your User ID"
           value={userId}
           onChange={(e) => setUserId(e.target.value)}
-          className="w-64 p-2 border rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-80 p-3 border-2 border-gray-300 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-teal-400"
         />
-        <button
+        <motion.button
           onClick={handleLogin}
-          className="px-6 py-3 bg-green-500 hover:bg-green-600 rounded-lg text-white font-semibold shadow-lg transition-transform transform hover:scale-105"
+          className="px-8 py-4 bg-teal-600 hover:bg-teal-700 rounded-xl text-white text-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           Login
-        </button>
+        </motion.button>
         {user && (
           <motion.div
-            className="flex flex-col items-center gap-4 mt-6"
+            className="flex flex-col items-center gap-6 mt-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            <p className="text-lg font-medium">Score: {user.score}</p>
-            <p className="text-lg font-medium">Prizes: {user.prizes}</p>
+            <div className="text-2xl font-semibold">
+              <p>🏆 Score: {user.score}</p>
+              <p className="mt-2">🎁 Prizes: {user.prizes}</p>
+            </div>
             <motion.button
               onClick={handleClick}
-              className="px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg text-white font-semibold shadow-lg transition-transform transform hover:scale-105"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl text-white text-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               Click Me!
             </motion.button>
           </motion.div>
         )}
         {message && (
-          <motion.p
-            className="mt-4 text-yellow-400 font-medium"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
+          <motion.div
+            className="mt-6 w-80 bg-gradient-to-r from-green-400 to-teal-500 text-white p-6 rounded-xl shadow-xl flex items-center justify-between"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.5 }}
           >
-            {message}
-          </motion.p>
+            <div className="flex items-center gap-4">
+              <p className="text-xl font-semibold">
+                <span className="text-2xl font-bold">
+                  {message.includes('points') && message.split(' ')[2]}
+                </span>{' '}
+                points!
+              </p>
+              {message.includes('prize') && (
+                <div className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+                  <span>🎁</span> Prize Won
+                </div>
+              )}
+            </div>
+            <div className="ml-4 flex items-center">
+              <motion.span
+                className="font-bold text-lg"
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+              >
+                🌟
+              </motion.span>
+            </div>
+          </motion.div>
         )}
       </motion.div>
 
@@ -113,7 +139,7 @@ const App: React.FC = () => {
       <AnimatePresence>
         {showPrizeNotification && (
           <motion.div
-            className="fixed top-16 transform -translate-x-1/2 py-4 bg-purple-600 text-white text-lg font-bold rounded-lg shadow-lg flex justify-center items-center"
+            className="fixed top-16 transform -translate-x-1/2 py-4 px-8 bg-gradient-to-r from-pink-500 to-yellow-400 text-white text-xl font-bold rounded-xl shadow-lg flex justify-center items-center"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
